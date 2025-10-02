@@ -18,7 +18,7 @@ struct TextBootcamp: View {
 //            .underline(true, color: Color.red)
 //            .italic()
 //            .strikethrough(true, color: Color.green)
-//            .font(.system(size: 24, weight: .semibold, design: .serif))
+//            .font(.system(si ze: 24, weight: .semibold, design: .serif))
 //            .baselineOffset(-50.0)
 //            .kerning(10)
             .multilineTextAlignment(.leading)
