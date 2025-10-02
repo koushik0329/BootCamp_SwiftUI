@@ -13,7 +13,8 @@ struct ColorBootcamp: View {
             .fill(
                 //Color.primary
                 //Color(UIColor.secondarySystemBackground)
-                Color.pink
+//                Color.pink
+                
 //                Color(
             )
             .frame(width: 200, height: 400)
