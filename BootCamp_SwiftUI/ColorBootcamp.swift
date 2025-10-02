@@ -14,6 +14,7 @@ struct ColorBootcamp: View {
                 //Color.primary
                 //Color(UIColor.secondarySystemBackground)
                 Color.pink
+//                Color(
             )
             .frame(width: 200, height: 400)
             //.shadow(radius: 10)
