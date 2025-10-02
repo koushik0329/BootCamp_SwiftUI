@@ -18,7 +18,7 @@ struct ColorBootcamp: View {
             .frame(width: 200, height: 400)
             //.shadow(radius: 10)
             .shadow(color: Color.pink.opacity(0.9), radius: 10, x: -20, y: -20)
-    }
+    } 
 }
 
 #Preview {
