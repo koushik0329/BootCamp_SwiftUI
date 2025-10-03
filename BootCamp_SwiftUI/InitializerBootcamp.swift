@@ -49,4 +49,5 @@ struct InitializerBootcamp: View {
 
 #Preview {
     InitializerBootcamp(count: 100, fruit: .apple)
+    InitializerBootcamp(count: 100, fruit: .orange)
 }
