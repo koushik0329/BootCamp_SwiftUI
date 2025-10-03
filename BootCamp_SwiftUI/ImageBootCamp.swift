@@ -10,14 +10,22 @@ import SwiftUI
 struct ImageBootCamp: View {
     var body: some View {
         Image("swift")
-//            .renderingMode(.template)
-            .resizable()
-            .frame(width: 200, height: 200)
-            .clipped()
-            .cornerRadius(150)
-//            .clipShape(
-//                Circle()
-//            )
+        //to enable color change
+        //.renderingMode(.template)
+                    .resizable()
+                    //.aspectRatio(contentMode: .fit)
+                    //.scaledToFit()
+                    .scaledToFit()
+                    .frame(width: 100, height: 200)
+//                    .foregroundColor(.green)
+//                    .clipped()
+                    //.cornerRadius(150)
+//                    .clipShape(
+//                        Circle()
+                        //RoundedRectangle(cornerRadius: 25.0)
+                        //Ellipse()
+                    //    Circle()
+//                    )
     }
 }
 

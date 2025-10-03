@@ -10,16 +10,17 @@ import SwiftUI
 struct IconBootcamp: View {
     var body: some View {
         Image(systemName: "lock.document.fill")
+//            .resizable()
                     .renderingMode(.original)
                     .font(.largeTitle)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
+                    
+//                    .aspectRatio(con  tentMode: .fit)
                     //.scaledToFit()
                     //.scaledToFill()
                     //.font(.caption)
-                    //.font(.system(size: 200))
+                    .font(.system(size: 200 ))
                     .foregroundColor(Color.pink)
-                    .frame(width: 200, height: 300)
+//                    .frame(width: 200, height: 300)
                     //.clipped()
     }
 }
