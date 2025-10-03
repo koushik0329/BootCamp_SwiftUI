@@ -7,26 +7,43 @@
 
 import SwiftUI
 
-struct GridBootCamp: View {
-    
-    let columns : [GridItem] = [
-        GridItem(.fixed(50), spacing: nil, alignment: nil),
-        GridItem(.fixed(50), spacing: nil, alignment: nil),
-        GridItem(.fixed(100), spacing: nil, alignment: nil)
-        ,GridItem(.fixed(50), spacing: nil, alignment: nil)
-        ,GridItem(.fixed(50), spacing: nil, alignment: nil)
-    ]
-    
+struct GridViewBootcamp: View {
     var body: some View {
-        LazyVGrid(columns : columns) {
-            ForEach(0..<50) { index in
-                Rectangle()
-                    .frame(height: 50)
+        Grid(alignment: .center, horizontalSpacing: 8, verticalSpacing: 8) {
+            ForEach(0..<4) { rowIndex in
+                GridRow(alignment: .bottom) {
+                    ForEach(0..<4) { columnIndex in
+                        let cellNumber = (rowIndex * 4) + (columnIndex + 1)
+                        
+                        if cellNumber == 7 {
+                            EmptyView()
+
+                        } else {
+                            cell(int: cellNumber)
+                                .gridCellColumns(cellNumber == 6 ? 2 : 1)
+                                .gridCellAnchor(.trailing)
+                                .gridColumnAlignment(
+                                    cellNumber == 1 ? .trailing :
+                                    cellNumber == 4 ? .leading :
+                                    .center
+                                )
+                        }
+                    }
+                }
             }
         }
+
+    }
+    
+    private func cell(int: Int) -> some View {
+        Text("\(int)")
+            .frame(height: int == 10 ? 20 : nil)
+            .font(.largeTitle)
+            .padding()
+            .background(Color.blue)
     }
 }
 
 #Preview {
-    GridBootCamp()
+    GridViewBootcamp()
 }
