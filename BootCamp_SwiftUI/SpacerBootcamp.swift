@@ -9,15 +9,15 @@ import SwiftUI
 
 struct SpacerBootcamp: View {
     var body: some View {
-        HStack(spacing: nil){
-            Spacer(minLength: 0)
+        HStack(spacing: 0){
+            Spacer(minLength: nil)
                 .frame(height: 10)
                 .background(Color.orange)
             
             Rectangle()
                 .frame(width: 50, height: 50)
             
-            Spacer(minLength: 0)
+            Spacer()
                 .frame(height: 10)
                 .background(Color.orange)
             
@@ -25,7 +25,7 @@ struct SpacerBootcamp: View {
                 .fill(Color.red)
                 .frame(width: 50, height: 50)
             
-            Spacer(minLength: 0)
+            Spacer()
                 .frame(height: 10)
                 .background(Color.orange)
             
@@ -33,11 +33,11 @@ struct SpacerBootcamp: View {
                 .fill(Color.blue)
                 .frame(width: 50, height: 50)
             
-            Spacer(minLength: 0)
+            Spacer()
                 .frame(height: 10)
                 .background(Color.orange)
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 200)
     }
 }
 
