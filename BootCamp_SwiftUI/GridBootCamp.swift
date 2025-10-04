@@ -7,43 +7,63 @@
 
 import SwiftUI
 
-struct GridViewBootcamp: View {
+struct GridBootcamp: View {
+    
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 6, alignment: nil),
+        GridItem(.flexible(), spacing: 6, alignment: nil),
+        GridItem(.flexible(), spacing: 6, alignment: nil),
+    ]
+    
     var body: some View {
-        Grid(alignment: .center, horizontalSpacing: 8, verticalSpacing: 8) {
-            ForEach(0..<4) { rowIndex in
-                GridRow(alignment: .bottom) {
-                    ForEach(0..<4) { columnIndex in
-                        let cellNumber = (rowIndex * 4) + (columnIndex + 1)
-                        
-                        if cellNumber == 7 {
-                            EmptyView()
-
-                        } else {
-                            cell(int: cellNumber)
-                                .gridCellColumns(cellNumber == 6 ? 2 : 1)
-                                .gridCellAnchor(.trailing)
-                                .gridColumnAlignment(
-                                    cellNumber == 1 ? .trailing :
-                                    cellNumber == 4 ? .leading :
-                                    .center
-                                )
+        ScrollView {
+            
+            Rectangle()
+                .fill(Color.orange)
+                .frame(height: 400)
+            
+            LazyVGrid(
+                columns: columns,
+                alignment: .center,
+                spacing: 6,
+                pinnedViews: [.sectionHeaders],
+                content: {
+                    Section(header:
+                                Text("Section 1")
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.blue)
+                                .padding()
+                    ) {
+                        ForEach(0..<20) { index in
+                            Rectangle()
+                                .frame(height: 150)
                         }
                     }
-                }
-            }
+                    
+                    Section(header:
+                                Text("Section 2")
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.red)
+                                .padding()
+                    ) {
+                        ForEach(0..<20) { index in
+                            Rectangle()
+                                .fill(Color.green)
+                                .frame(height: 150)
+                        }
+                    }
+                    
+            })
         }
-
-    }
-    
-    private func cell(int: Int) -> some View {
-        Text("\(int)")
-            .frame(height: int == 10 ? 20 : nil)
-            .font(.largeTitle)
-            .padding()
-            .background(Color.blue)
     }
 }
 
-#Preview {
-    GridViewBootcamp()
+struct GridBootcamp_Previews: PreviewProvider {
+    static var previews: some View {
+        GridBootcamp()
+    }
 }
