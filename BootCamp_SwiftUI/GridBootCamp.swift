@@ -9,21 +9,21 @@ import SwiftUI
 
 struct GridBootcamp: View {
     
-    let columns: [GridItem] = [
+    let rows: [GridItem] = [
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),
     ]
     
     var body: some View {
-        ScrollView {
+        ScrollView(.horizontal) {
             
             Rectangle()
                 .fill(Color.orange)
                 .frame(height: 400)
             
-            LazyVGrid(
-                columns: columns,
+            LazyHGrid(
+                rows: rows,
                 alignment: .center,
                 spacing: 6,
                 pinnedViews: [.sectionHeaders],
