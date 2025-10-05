@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GridBootcamp: View {
     
+    //all grid are lazzy
+    
     let rows: [GridItem] = [
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),

@@ -10,6 +10,16 @@ import SwiftUI
 struct SafeAreaBootcamp: View {
     var body: some View {
         
+//        ZStack {
+//            Color.blue
+//            VStack {
+//                Text("Hello world")
+//                Spacer()
+//            }
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            
+//        }
+        
         ScrollView {
             VStack {
                 Text("Title goes here")
