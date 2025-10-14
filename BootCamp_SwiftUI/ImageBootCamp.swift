@@ -17,13 +17,14 @@ struct ImageBootCamp: View {
                     //.scaledToFit()
                     .scaledToFit()
                     .frame(width: 100, height: 200)
+                    .border(.red, width: 10)
 //                    .foregroundColor(.green)
 //                    .clipped()
                     //.cornerRadius(150)
 //                    .clipShape(
 //                        Circle()
                         //RoundedRectangle(cornerRadius: 25.0)
-                        //Ellipse()
+                          //Ellipse()
                     //    Circle()
 //                    )
     }

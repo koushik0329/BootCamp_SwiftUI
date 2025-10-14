@@ -15,10 +15,10 @@ struct TextBootcamp: View {
 //            .fontWeight(.semibold)
 //            .bold()
 //            .underline()
-//            .underline(tr ue, color: Color.red)
+//            .underline(true, color: Color.red)
 //            .italic()
 //            .strikethrough(true, color: Color.green)
-//            .font(.system(si ze: 24, weight: .semibold, design: .serif))
+//            .font(.system(size: 24, weight: .semibold, design: .serif))
         //line spaceing
 //            .baselineOffset(-50.0)
         // letter spacing
@@ -27,6 +27,8 @@ struct TextBootcamp: View {
             .foregroundColor(.red)
             .frame(width: 200, height: 100, alignment: .leading)
             .minimumScaleFactor(0.1)
+        
+        
     }
 }
 
