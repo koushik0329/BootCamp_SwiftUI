@@ -15,8 +15,9 @@ struct GridBootcamp: View {
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),
+        
     ]
-    
+     
     var body: some View {
         ScrollView(.horizontal) {
             

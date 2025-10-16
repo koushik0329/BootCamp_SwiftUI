@@ -5,17 +5,15 @@
 //  Created by Koushik Reddy Kambham on 10/3/25.
 //
 
-
 import SwiftUI
 
 struct ScrollViewBootcamp: View {
     var body: some View {
         ScrollView {
-            LazyVStack {
+//            LazyVStack {
                 ForEach(0..<100) { index in
                     ScrollView(.horizontal, showsIndicators: false, content: {
                         LazyHStack {
-                            
                             ForEach(0..<20) { index in
                                 RoundedRectangle(cornerRadius: 25.0)
                                     .fill(Color.white)
@@ -26,7 +24,7 @@ struct ScrollViewBootcamp: View {
                         }
                     })
                 }
-            }
+//            }
         }
     }
 }
