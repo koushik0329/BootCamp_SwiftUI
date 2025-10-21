@@ -10,6 +10,7 @@ import SwiftUI
 struct TextFielsBootCamp: View {
     
     @State private var username: String = ""
+    @State var isToggle : Bool = false
     
     var body: some View {
         VStack {
@@ -20,7 +21,16 @@ struct TextFielsBootCamp: View {
                                             .stroke(Color.blue, lineWidth: 2)
                                     )
             Text("Username: \(username)")
+            
+            Toggle(isOn: $isToggle, label: {Text("leblw")})
+                .toggleStyle(SwitchToggleStyle(tint: Color.purple))
+            TextEditor(text: $username)
         }
+        .padding()
+        .background(Color.red.opacity(0.2))
+        
+       
+            
     }
 }
 
