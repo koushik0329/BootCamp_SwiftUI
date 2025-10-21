@@ -1,55 +1,77 @@
 //
 //  EnvironmentObj.swift
-//  BootCamp_SwiftUI
+//  SwiftUI_Oct21
 //
-//  Created by Koushik Reddy Kambham on 10/14/25.
+//  Created by Koushik Reddy Kambham on 10/21/25.
 //
 
 import SwiftUI
 
-class A: ObservableObject{
-    @Published var name: String = "koushik"
+class DataModel: ObservableObject {
+    @Published var sample: String = "sample text"
 }
 
-struct FirstView: View {
+struct EnvironmentObj: View {
     
-    @StateObject var aObj = A()
+    @State private var path = NavigationPath()
+    @StateObject private var dataObj = DataModel()
     
     var body: some View {
-        NavigationStack {
-            Text(aObj.name)
-            NavigationLink("click here to go to second screen", destination: SecondView())
+        NavigationStack(path: $path) {
+            VStack(spacing: 20) {
+                Text("First Screen")
+                    .font(.title2)
+                Button("Click here to go to next screen") {
+                    path.append("MidScreen")
+                }
+            }
+            .navigationDestination(for: String.self) { value in
+                switch value {
+                case "MidScreen":
+                    MidScreen(path: $path)
+                case "LastScreen":
+                    LastScreen()
+                default:
+                    EmptyView()
+                }
+            }
         }
-        .environmentObject(aObj)
+        .environmentObject(dataObj)
     }
 }
 
-struct SecondView: View {
+struct MidScreen: View {
+    @Binding var path: NavigationPath
+    
     var body: some View {
-        NavigationStack {
-            NavigationLink("click here to go to second screen", destination: ThirdView())
+        VStack(spacing: 20) {
+            Text("Mid Screen")
+                .font(.title2)
+            Button("Go to Last Screen") {
+                path.append("LastScreen")
+            }
         }
     }
 }
 
-struct ThirdView: View {
+struct LastScreen: View {
+    @EnvironmentObject var dataObj: DataModel
+    
     var body: some View {
-        NavigationStack {
-            NavigationLink("click here to go to second screen", destination: FinalView())
+        VStack(spacing: 20) {
+            Text("Last Screen")
+                .font(.title2)
+            
+            Text("Shared Value: \(dataObj.sample)")
+                .foregroundColor(.blue)
+            
+            Button("Change Value") {
+                dataObj.sample = "Updated from Last Screen"
+            }
         }
-    }
-}
-
-struct FinalView: View {
-    
-    @EnvironmentObject var aObj: A
-    
-    var body: some View {
-        Text(aObj.name)
-        Text("last screen")
     }
 }
 
 #Preview {
-    FirstView()
+    EnvironmentObj()
 }
