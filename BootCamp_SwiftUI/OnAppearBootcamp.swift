@@ -51,5 +51,6 @@ struct OnAppearBootcamp: View {
 struct OnAppearBootcamp_Previews: PreviewProvider {
     static var previews: some View {
         OnAppearBootcamp()
+        OnAppearBootcamp()
     }
 }
